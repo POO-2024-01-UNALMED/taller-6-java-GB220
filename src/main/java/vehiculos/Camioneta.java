@@ -5,13 +5,13 @@ public class Camioneta extends Vehiculo{
 	private boolean volco;
 	private static int cantidadVehiculos;
 	
-	Camioneta(String placa, int puertas, int velocidadMaxima, String nombre, long precio, int peso, String traccion,
+	public Camioneta(String placa, int puertas, int velocidadMaxima, String nombre, long precio, int peso, String traccion,
 			Fabricante fabricante, boolean volco) {
 		super(placa, puertas, velocidadMaxima, nombre, precio, peso, traccion, fabricante);
 		this.setVolco(volco);
 		Camioneta.cantidadVehiculos+=1;
 	}
-	Camioneta(String placa, int puertas, String nombre, long precio, int peso,
+	public Camioneta(String placa, int puertas, String nombre, long precio, int peso,
 			Fabricante fabricante, boolean volco) {
 		super(placa, puertas, 90, nombre, precio, peso, "4X4", fabricante);
 		this.setVolco(volco);

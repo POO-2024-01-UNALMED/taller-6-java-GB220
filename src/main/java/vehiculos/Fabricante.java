@@ -9,7 +9,7 @@ public class Fabricante {
 	private Pais pais;
 	private static Map<Fabricante, Integer> contadorInstancias = new HashMap<>();
 	
-	Fabricante (String nombre, Pais pais) {
+	public Fabricante (String nombre, Pais pais) {
 		this.nombre = nombre;
 		this.pais = pais;
 		Fabricante.contadorInstancias.put(this, Fabricante.contadorInstancias.getOrDefault(this, 0) + 1);

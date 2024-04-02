@@ -8,7 +8,7 @@ public class Pais {
 	private String nombre;
 	private static Map<Pais, Integer> contadorInstancias = new HashMap<>();
 	
-	Pais (String nombre){
+	public Pais (String nombre){
 		this.nombre = nombre;
 		Pais.contadorInstancias.put(this, Pais.contadorInstancias.getOrDefault(this, 0) + 1);
 	}
