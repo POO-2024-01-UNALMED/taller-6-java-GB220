@@ -23,6 +23,8 @@ public class Vehiculo {
 		this.traccion = traccion;
 		this.fabricante = fabricante;
 		Vehiculo.cantidadVehiculos+=1;
+		fabricante.contador+=1;
+		fabricante.getPais().contador+=1;
 	}
 
 	public void vehiculosPorTipo() {

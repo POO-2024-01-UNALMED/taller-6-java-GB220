@@ -1,31 +1,38 @@
 package vehiculos;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Fabricante {
 	
 	private String nombre;
 	private Pais pais;
-	private static Map<Fabricante, Integer> contadorInstancias = new HashMap<>();
+	int contador;
+	static ArrayList<Fabricante> fabricantes = new ArrayList<Fabricante>();
+	static ArrayList<Integer> listaConteo = new ArrayList<Integer>();
 	
 	public Fabricante (String nombre, Pais pais) {
 		this.nombre = nombre;
 		this.pais = pais;
-		Fabricante.contadorInstancias.put(this, Fabricante.contadorInstancias.getOrDefault(this, 0) + 1);
+		fabricantes.add(this);
 	}
 	
+	static void agregarContador( ) {
+		for (Fabricante fabricante : fabricantes) {
+			listaConteo.add(fabricante.contador);
+		}
+	}
 	public static Fabricante fabricaMayorVentas() {
-		Fabricante instanciaMasUsada = null;
-		int maxConteo = 0;
+		agregarContador();
+		int maximo = Collections.max(listaConteo);
+		Fabricante fabricaMayorVentas = null;
 		
-		for (Map.Entry<Fabricante, Integer> entry : contadorInstancias.entrySet()) {
-			if (entry.getValue() > maxConteo) {
-				maxConteo = entry.getValue();
-				instanciaMasUsada = entry.getKey();
+		for (Fabricante fabricante : fabricantes) {
+			if (fabricante.contador == maximo) {
+				fabricaMayorVentas = fabricante;
 			}
 		}
-		return instanciaMasUsada;
+		return fabricaMayorVentas;
 	}
 	
 	public String getNombre() {
